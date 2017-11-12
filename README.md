@@ -1,5 +1,10 @@
 # hdl_cfx
-Projeto de Lógica Computacional
+Projeto de Lógica Computacional - Elaborar um chip CFx
+
+- [x] HalfAdder
+- [ ] FullAdder
+- [ ] FullAdder 5bits
+- [ ] ALU
 
 Syntaxes
 
