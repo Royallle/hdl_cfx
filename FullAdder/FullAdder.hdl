@@ -1,0 +1,16 @@
+/**
+ *  FullAdder
+ *  input a, b ,c (carry in)
+ *  output sum,carry
+ */
+
+CHIP FullAdder {
+		IN a, b, c;
+		OUT outsum, outcarry;
+		
+    PARTS:
+		HalfAdder(a=a ,b=b ,sum=w1 , carry=w2 );
+		HalfAdder(a=w1 ,b=c ,sum=outsum , carry=w3);
+		Or(a=w3 ,b=w2 ,out=outcarry );
+	
+}
