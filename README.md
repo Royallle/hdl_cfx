@@ -1,6 +1,7 @@
 # hdl_cfx
 Projeto de Lógica Computacional - Elaborar um chip CFx
 
+TODO
 - [x] HalfAdder
 - [ ] FullAdder
 - [ ] FullAdder 5bits
