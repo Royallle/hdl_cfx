@@ -1,0 +1,35 @@
+/**
+ *  descrição
+ *
+ *
+ */
+
+CHIP eq {
+    /* declaração input e output ex:
+		IN a, b;
+		OUT out;
+	*/
+  IN x[5], y[5];
+  OUT out;
+
+    PARTS:
+    /* Portas lógicas */
+	   Xor(a=x[0] ,b=y[0] ,out=w1 );
+      Xor(a=x[1] ,b=y[1] ,out=w2 );
+       Xor(a=x[2] ,b=y[2] ,out=w3 );
+        Xor(a=x[3] ,b=y[3] ,out=w4 );
+        Xor(a=x[4] ,b=y[4] ,out=w5);
+         Xor(a=w1 ,b=w2 ,out=out1);
+          Xor(a=w3 ,b=w4 ,out=out2);
+           Xor(a=w5 ,b=out1 ,out=out3);
+
+             Xor(a=out2 ,b=out3 ,out=out);
+
+
+
+
+
+
+
+
+}
