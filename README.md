@@ -3,8 +3,8 @@ Projeto de Lógica Computacional - Elaborar um chip CFx
 
 TODO
 - [x] HalfAdder
-- [ ] FullAdder
-- [ ] FullAdder 5bits
+- [x] FullAdder
+- [x] FullAdder 5bits
 - [ ] ALU
 
 Syntaxes
