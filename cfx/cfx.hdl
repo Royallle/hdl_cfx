@@ -1,0 +1,36 @@
+/**
+ *  Chip do Projecto
+ * 
+ *  
+ */
+
+CHIP cfx {   
+		IN x[5], y[5];
+		OUT nx,ny, px, py, zx, zy, eq, si, overflow[5], outsum[5], outsub[5], outsix[5];
+    PARTS:
+
+		Or(a=x[4] ,b=x[4] ,out=nx ); // Retorna 1 se x for negativo
+		Or(a=y[4] ,b=y[4] ,out=ny ); // Retorna 1 se y for negativo
+		
+		Not(in=x[0] ,out=nota);
+		Or(a=nota ,b=nota ,out=px ); // Retorna 1 se x for par
+		
+		Not(in=y[0] ,out=notb);
+		Or(a=notb ,b=notb ,out=py ); // Retorna 1 se y for par
+		
+		Or(a=x[0] ,b=x[0] ,out=w1);
+		Or(a=w1 ,b=x[1] ,out=w2);
+		Or(a=w2 ,b=x[2] ,out=w3);
+		Or(a=w3 ,b=x[3] ,out=w4);
+		Or(a=w4 ,b=x[4] ,out=w5);
+		Not(in=w5, out=zx); // Retorna 1 se x for zero
+		
+		Or(a=y[0] ,b=y[0] ,out=w1);
+		Or(a=w1 ,b=y[1] ,out=w2);
+		Or(a=w2 ,b=y[2] ,out=w3);
+		Or(a=w3 ,b=y[3] ,out=w4);
+		Or(a=w4 ,b=y[4] ,out=w5);
+		Not(in=w5, out=zy); // Retorna 1 se y for zero
+
+		
+}
