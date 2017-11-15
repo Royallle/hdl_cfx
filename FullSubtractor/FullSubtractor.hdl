@@ -1,0 +1,18 @@
+/**
+ *  FullSubtractor
+ * 	input a,b, inborrow
+ *	out sub,borrow
+ *  
+ */
+
+CHIP FullSubtractor {
+		IN a, b, inborrow;
+		OUT sub, borrow;
+    PARTS:
+	Xor(a=a ,b=b ,out=w1);
+	And(a=a ,b=b ,out=w2);	 
+	Xor(a=w1 ,b=inborrow ,out=sub);	
+	And(a=w1 ,b=inborrow ,out=w3);
+	Or(a=w3 ,b=w2 ,out=borrow);
+	
+}

@@ -1,0 +1,15 @@
+/**
+ *  HalfSubtractor
+ * 	input a,b
+ *	output out,borrow
+ *  
+ */
+
+CHIP HalfSubtractor {
+		IN a, b;
+		OUT sub, borrow; // subtração e borrow
+    PARTS:
+	Xor(a=a ,b=b ,out=sub);
+	Not(in=a ,out=nota);
+	And(a=nota, b=b ,out=borrow);
+}
