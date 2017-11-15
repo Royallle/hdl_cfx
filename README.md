@@ -2,10 +2,18 @@
 Projeto de Lógica Computacional - Elaborar um chip CFx
 
 TODO
-- [x] HalfAdder
-- [x] FullAdder
-- [x] FullAdder 5bits
-- [ ] ALU
+- [x] nx (Retorna 1 se x for negativo)
+- [x] ny (Retorna 1 se y for negativo)
+- [x] px (Retorna 1 se x for par)
+- [x] py (Retorna 1 se y for par)
+- [x] zx (Retorna 1 se x for 0)
+- [x] zy (Retorna 1 se y for 0)
+- [ ] eq (Retorna 1 se x e y são iguais)
+- [x] si (Retorna 1 se x e y são simétricos)
+- [x] overflow 
+- [x] outsum
+- [ ] outsub
+- [ ] outsix
 
 Syntaxes
 
