@@ -1,0 +1,15 @@
+/**
+ *  Devolve 1 se in for par (primeiro bit = 0)
+ *  input in
+ *  output out
+ */
+
+CHIP px {
+    
+		IN in[5];
+		OUT out;
+    PARTS:
+	Not(in=in[0] ,out=notin);
+    Or(a=notin ,b=notin ,out=out );
+	
+}

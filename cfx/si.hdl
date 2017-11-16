@@ -1,0 +1,24 @@
+/**
+ *  Retorna 1 se a e b forem simétricos
+ * 	input a,b
+ *  Nota: Dois números são simétricos se a soma dos dois resultar 0;
+ */
+
+CHIP si {
+		IN a[5], b[5];
+		OUT out;
+    PARTS:
+	HalfAdder(a=a[0] ,b=b[0] ,sum=sum0 , carry=w1 ); // Soma os dois números
+	FullAdder(a=a[1] ,b=b[1] ,c=w1 ,sum=sum1 ,carry=w2 );
+	FullAdder(a=a[2] ,b=b[2] ,c=w2 ,sum=sum2 ,carry=w3 );
+	FullAdder(a=a[3] ,b=b[3] ,c=w3 ,sum=sum3 ,carry=w4 );
+	FullAdder(a=a[4] ,b=b[4] ,c=w4 ,sum=sum4 ,carry=drop ); // se carry=1 então overflow
+	
+	Or(a=sum0 ,b=sum0 ,out=ng1);
+	Or(a=ng1 ,b=sum1 ,out=ng2);
+	Or(a=ng2 ,b=sum2 ,out=ng3);
+	Or(a=ng3 ,b=sum3 ,out=ng4);
+	Or(a=ng4 ,b=sum4 ,out=ng5);
+	Not(in=ng5, out=out); // Avalia se o resultado é 0
+	
+}

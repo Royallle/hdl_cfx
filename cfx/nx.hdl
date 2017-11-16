@@ -1,0 +1,14 @@
+/**
+ *  Devolve 1 se in for negativo (último bit)
+ *  input in
+ *  output out
+ */
+
+CHIP nx {
+    
+		IN in[5];
+		OUT out;
+    PARTS:
+    Or(a=in[4] ,b=in[4] ,out=out );
+	
+}

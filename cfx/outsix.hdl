@@ -1,0 +1,25 @@
+/**
+ *  Retorna simétrico de in
+ * 	input in[5]
+ *  output out[5]
+ */
+
+CHIP outsix {
+		IN in[5];
+		OUT out[5];
+		
+    PARTS:
+	
+    Not(in=in[0], out=not1);
+	Not(in=in[1], out=not2);
+	Not(in=in[2], out=not3);
+	Not(in=in[3], out=not4);
+	Not(in=in[4], out=not5);
+	
+    HalfAdder(a=not1 ,b=true ,sum=out[0] , carry=w1 );
+	FullAdder(a=not2 ,b=false ,c=w1 ,sum=out[1] ,carry=w2 );
+	FullAdder(a=not3 ,b=false ,c=w2 ,sum=out[2] ,carry=w3 );
+	FullAdder(a=not4 ,b=false ,c=w3 ,sum=out[3] ,carry=w4 );
+	FullAdder(a=not5 ,b=false ,c=w4 ,sum=out[4] ,carry=drop ); // se carry=1 então overflow
+	
+}

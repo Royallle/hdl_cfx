@@ -10,69 +10,30 @@ CHIP cfx {
     PARTS:
 		
 		// outsum
-		HalfAdder(a=x[0] ,b=y[0] ,sum=outsum[0] , carry=carry1 );
-		FullAdder(a=x[1] ,b=y[1] ,c=carry1 ,sum=outsum[1] ,carry=carry2 );
-		FullAdder(a=x[2] ,b=y[2] ,c=carry2 ,sum=outsum[2] ,carry=carry3 );
-		FullAdder(a=x[3] ,b=y[3] ,c=carry3 ,sum=outsum[3] ,carry=carry4 );
-		FullAdder(a=x[4] ,b=y[4] ,c=carry4 ,sum=outsum[4] ,carry=overflow[0] ); // se carry=1 então overflow
+		FullAdder5bit(a=x, b=y ,sum=outsum);
 				
 		// outsub
+		FullSubtractor5bit(a=x ,b=y ,sub=outsub);
 		
-		// nx & ny
-		Or(a=x[4] ,b=x[4] ,out=nx ); // Retorna 1 se x for negativo
-		Or(a=y[4] ,b=y[4] ,out=ny ); // Retorna 1 se y for negativo
+		//outsix Retorna simétrico de x
+		outsix(in=x, out=outsix);
+			
+		// nx & ny -> Retorna 1 se x/y forem negativos
+		nx(in=x, out=nx);
+		nx(in=y, out=ny);
 		
-		// px & py
-		Not(in=x[0] ,out=nota);
-		Or(a=nota ,b=nota ,out=px ); // Retorna 1 se x for par
+		// px & py -> Retorna 1 se x/y for par
+		px(in=x, out=px);
+		px(in=y, out=py);
 		
-		Not(in=y[0] ,out=notb);
-		Or(a=notb ,b=notb ,out=py ); // Retorna 1 se y for par
+		// zx & zy -> Retorna 1 se x/y for zero
+		zx(in=x, out=zx);
+		zx(in=y, out=zy);
 		
-		// zx & zy
-		Or(a=x[0] ,b=x[0] ,out=zx1);
-		Or(a=zx1 ,b=x[1] ,out=zx2);
-		Or(a=zx2 ,b=x[2] ,out=zx3);
-		Or(a=zx3 ,b=x[3] ,out=zx4);
-		Or(a=zx4 ,b=x[4] ,out=zx5);
-		Not(in=zx5, out=zx); // Retorna 1 se x for zero
+		//eq -> Retorna 1 se x e y são iguais
+		eq(a=x ,b=y ,out=eq);
+				
+		//si -> Retorna 1 se x e y forem simétricos		
+		si(a=x ,b=y ,out=si);
 		
-		Or(a=y[0] ,b=y[0] ,out=zy1);
-		Or(a=zy1 ,b=y[1] ,out=zy2);
-		Or(a=zy2 ,b=y[2] ,out=zy3);
-		Or(a=zy3 ,b=y[3] ,out=zy4);
-		Or(a=zy4 ,b=y[4] ,out=zy5);
-		Not(in=zy5, out=zy); // Retorna 1 se y for zero
-		
-		//eq
-		Xor(a=x[0] ,b=y[0] ,out=eq1 );
-		Not(in=eq1, out=noteq1);
-		Xor(a=x[1] ,b=y[1] ,out=eq2 );
-		Not(in=eq2, out=noteq2);		
-		Xor(a=x[2] ,b=y[2] ,out=eq3 );
-		Not(in=eq3, out=noteq3);			
-		Xor(a=x[3] ,b=y[3] ,out=eq4 );
-		Not(in=eq4, out=noteq4);		
-		Xor(a=x[4] ,b=y[4] ,out=eq5 );
-		Not(in=eq5, out=noteq5);
-
-		And(a=noteq1 ,b=noteq2 ,out=eqout1 ); 
-		And(a=noteq3 ,b=noteq4 ,out=eqout2 );
-		And(a=eqout1, b=eqout2, out=eqout3 );
-		And(a=eqout3, b=noteq5, out=eq); // Retorna 1 se x e y são iguais
-		
-		
-		//si 
-		HalfAdder(a=x[0] ,b=y[0] ,sum=sum0 , carry=csi1 ); 
-		FullAdder(a=x[1] ,b=y[1] ,c=csi1 ,sum=sum1 ,carry=csi2 );
-		FullAdder(a=x[2] ,b=y[2] ,c=csi2 ,sum=sum2 ,carry=csi3 );
-		FullAdder(a=x[3] ,b=y[3] ,c=csi3 ,sum=sum3 ,carry=csi4 );
-		FullAdder(a=x[4] ,b=y[4] ,c=csi4 ,sum=sum4 ,carry=drop );
-		
-		Or(a=sum0 ,b=sum0 ,out=si1);
-		Or(a=si1 ,b=sum1 ,out=si2);
-		Or(a=si2 ,b=sum2 ,out=si3);
-		Or(a=si3 ,b=sum3 ,out=si4);
-		Or(a=si4 ,b=sum4 ,out=si5);
-		Not(in=si5, out=si); // Retorna 1 se x e y forem simétricos		
 }
