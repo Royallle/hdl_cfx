@@ -1,18 +1,16 @@
 /**
  *  FullSubtractor
- * 	input a,b, inborrow
- *	out sub,borrow
- *  
+ *  input a, b ,inborrow 
+ *  output outsub,outborrow
  */
 
 CHIP FullSubtractor {
 		IN a, b, inborrow;
-		OUT sub, borrow;
+		OUT outsub, outborrow;
+		
     PARTS:
-	Xor(a=a ,b=b ,out=w1);
-	And(a=a ,b=b ,out=w2);	 
-	Xor(a=w1 ,b=inborrow ,out=sub);	
-	And(a=w1 ,b=inborrow ,out=w3);
-	Or(a=w3 ,b=w2 ,out=borrow);
+		HalfSubtractor(a=a ,b=b ,sub=w1 , borrow=w2 );
+		HalfSubtractor(a=w1 ,b=inborrow ,sub=outsub , borrow=w3);
+		Or(a=w3 ,b=w2 ,out=outborrow );
 	
 }

@@ -1,15 +1,16 @@
 /**
- *  descrição
- * 
- *  
+ *  FullSubtractor5bit
+ * 	input a[5],b[5], inborrow[5]
+ *	out sub[5]
  */
 
-CHIP nome {
-    /* declaração input e output ex:
-		IN a, b;
-		OUT out;
-	*/
+CHIP FullSubtractor5bit {
+		IN a[5], b[5];
+		OUT sub[5];
     PARTS:
-    /* Portas lógicas */
-	
+    HalfSubtractor(a=a[0], b=b[0], sub=sub[0], borrow=w1);
+	FullSubtractor(a=a[1] ,b=b[1] ,inborrow=w1 ,sub=sub[1] ,borrow=w2 );
+	FullSubtractor(a=a[2] ,b=b[2] ,inborrow=w2 ,sub=sub[2] ,borrow=w3 );
+	FullSubtractor(a=a[3] ,b=b[3] ,inborrow=w3 ,sub=sub[3] ,borrow=w4 );
+	FullSubtractor(a=a[4] ,b=b[4] ,inborrow=w4 ,sub=sub[4] ,borrow=drop ); // se borrow=1 então overflow	
 }
