@@ -12,8 +12,8 @@ TODO
 - [x] si (Retorna 1 se x e y são simétricos)
 - [x] overflow 
 - [x] outsum
-- [ ] outsub
-- [ ] outsix
+- [x] outsub
+- [x] outsix
 
 Syntaxes
 
