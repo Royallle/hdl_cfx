@@ -6,11 +6,15 @@
 
 CHIP FullSubtractor {
 		IN a, b, inborrow;
-		OUT outsub, outborrow;
+		OUT sub, borrow;
 		
     PARTS:
-		HalfSubtractor(a=a ,b=b ,sub=w1 , borrow=w2 );
-		HalfSubtractor(a=w1 ,b=inborrow ,sub=outsub , borrow=w3);
-		Or(a=w3 ,b=w2 ,out=outborrow );
+		Xor(a=a ,b=b ,out=w1);
+		Not(in=a ,out=nota);
+		And(a=nota ,b=b ,out=w2);	 
+		Xor(a=w1 ,b=inborrow ,out=sub);	
+		Not(in=w1 ,out=notw1);
+		And(a=notw1 ,b=inborrow ,out=w3);
+		Or(a=w3 ,b=w2 ,out=borrow);
 	
 }

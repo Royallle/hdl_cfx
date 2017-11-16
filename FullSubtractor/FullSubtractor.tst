@@ -3,7 +3,7 @@
 load FullSubtractor.hdl,
 output-file FullSubtractor.out,
 compare-to FullSubtractor.cmp,
-output-list a%B3.1.3 b%B3.1.3 inborrow%B4.1.4 outsub%B3.1.3 outborrow%B4.1.4;
+output-list a%B3.1.3 b%B3.1.3 inborrow%B4.1.4 sub%B3.1.3 borrow%B4.1.4;
 
 set a 0,
 set b 0,

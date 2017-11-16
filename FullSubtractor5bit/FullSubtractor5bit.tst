@@ -1,29 +1,25 @@
-// This file is part of www.nand2tetris.org
-// and the book "The Elements of Computing Systems"
-// by Nisan and Schocken, MIT Press.
-// File name: projects/01/And.tst
+// Ficheiro teste FullSubtractor5bit
+load FullSubtractor5bit.hdl, 
+output-file FullSubtractor5bit.out,
+compare-to FullSubtractor5bit.cmp,
+output-list a%B3.5.3 b%B3.5.3 sub%B3.5.3;
 
-load And.hdl, // Nome do chip hdl
-output-file And.out, // Nome do ficheiro de output
-compare-to And.cmp,  // Nome do ficheiro de comparação
-output-list a%B3.1.3 b%B3.1.3 out%B3.1.3; // Formato do Output B3.1.3 = 3 -> Nº de espaços. 1 -> Nº de Bits. 3 -> Nº de espaços
-
-set a 0,
-set b 0,
+set a %B00000, // 0-0
+set b %B00000,
 eval,
 output;
 
-set a 0,
-set b 1,
+set a %B00101, // 5-5
+set b %B00101,
 eval,
 output;
 
-set a 1,
-set b 0,
+set a %B00010, // 2-1
+set b %B00001,
 eval,
 output;
 
-set a 1,
-set b 1,
+set a %B00010, // 2-5
+set b %B00101,
 eval,
 output;

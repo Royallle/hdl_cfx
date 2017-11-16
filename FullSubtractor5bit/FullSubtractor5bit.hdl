@@ -8,7 +8,7 @@ CHIP FullSubtractor5bit {
 		IN a[5], b[5];
 		OUT sub[5];
     PARTS:
-    HalfSubtractor(a=a[0], b=b[0], sub=sub[0], borrow=w1);
+    FullSubtractor(a=a[0] ,b=b[0] ,inborrow=false ,sub=sub[0] ,borrow=w1 );
 	FullSubtractor(a=a[1] ,b=b[1] ,inborrow=w1 ,sub=sub[1] ,borrow=w2 );
 	FullSubtractor(a=a[2] ,b=b[2] ,inborrow=w2 ,sub=sub[2] ,borrow=w3 );
 	FullSubtractor(a=a[3] ,b=b[3] ,inborrow=w3 ,sub=sub[3] ,borrow=w4 );
