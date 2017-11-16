@@ -1,29 +1,26 @@
-// This file is part of www.nand2tetris.org
-// and the book "The Elements of Computing Systems"
-// by Nisan and Schocken, MIT Press.
-// File name: projects/01/And.tst
+// Chip de teste da função eq
 
-load eq.hdl, // Nome do chip hdl
-output-file eq.out, // Nome do ficheiro de output
-compare-to eq.cmp,  // Nome do ficheiro de comparação
-output-list a%B3.5.3 b%B3.5.3 out%B3.1.3; // Formato do Output B3.1.3 = 3 -> Nº de espaços. 1 -> Nº de Bits. 3 -> Nº de espaços
+load eq.hdl, 
+output-file eq.out,
+compare-to eq.cmp,
+output-list a%B3.5.3 b%B3.5.3 out%B3.1.3;
 
-set a %B11110,
-set b %B11010,
+set a %B00000, // a=0 b=0
+set b %B00000,
 eval,
 output;
 
-set a %B01111,
-set b %B11100,
+set a %B00100, // a=4 b=5
+set b %B00101,
 eval,
 output;
 
-set a %B11111,
-set b %B11111,
+set a %B01010, // a=10 b=5
+set b %B00101,
 eval,
 output;
 
-set a %B10101,
-set b %B10101,
+set a %B00111, // a=6 b=6
+set b %B00111,
 eval,
 output;

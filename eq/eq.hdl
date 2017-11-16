@@ -1,29 +1,38 @@
 /**
- *  descrição
- *
- *
+ *  Retorna 1 se a e b são iguais
+ *	input a[5], b[5]
+ *	output 
+ *	Nota: A porta XNOR retorna 1 quando ambos os bits são iguais,
+ *	ao contrário da porta XOR que verifica a diferença porta
+ *	XNOR verifica a semelhanças
  */
 
 CHIP eq {
-    /* declaração input e output ex:
-		IN a, b;
+		IN a[5], b[5];
 		OUT out;
-	*/
-  IN a[5], b[5];
-  OUT out;
 
     PARTS:
-    /* Portas lógicas */
-	   Xor(a=a[0] ,b=b[0] ,out=w1 );
-      Xor(a=a[1] ,b=b[1] ,out=w2 );
-       Xor(a=a[2] ,b=b[2] ,out=w3 );
-        Xor(a=a[3] ,b=b[3] ,out=w4 );
-        Xor(a=a[4] ,b=b[4] ,out=w5);
-         Xor(a=w1 ,b=w2 ,out=out1);
-          Xor(a=w3 ,b=w4 ,out=out2);
-           Xor(a=w5 ,b=out1 ,out=out3);
+		Xor(a=a[0] ,b=b[0] ,out=w1 );
+		Not(in=w1, out=x1);
+		
+		Xor(a=a[1] ,b=b[1] ,out=w2 );
+		Not(in=w2, out=x2);
+		
+		Xor(a=a[2] ,b=b[2] ,out=w3 );
+		Not(in=w3, out=x3);	
+		
+		Xor(a=a[3] ,b=b[3] ,out=w4 );
+		Not(in=w4, out=x4);
+		
+		Xor(a=a[4] ,b=b[4] ,out=w5 );
+		Not(in=w5, out=x5);
 
-             Xor(a=out2 ,b=out3 ,out=out);
+		And(a=x1 ,b=x2 ,out=out1 ); 
+		And(a=x3 ,b=x4 ,out=out2 );
+		And(a=out1, b=out2, out=out3);
+		And(a=out3, b=x5, out=out); // Verificar se algum bit não é semelhante
+	
+		
 
 
 

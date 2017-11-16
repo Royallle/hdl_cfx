@@ -1,0 +1,15 @@
+/**
+ *  descrição
+ * 
+ *  
+ */
+
+CHIP nome {
+    /* declaração input e output ex:
+		IN a, b;
+		OUT out;
+	*/
+    PARTS:
+    /* Portas lógicas */
+	
+}
