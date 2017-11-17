@@ -10,7 +10,7 @@ CHIP cfx {
     PARTS:
 		
 		// outsum
-		FullAdder5bit(a=x, b=y ,sum=outsum);
+		FullAdder5bit(a=x, b=y ,sum=outsum, overflow=overflow[0]);
 				
 		// outsub
 		FullSubtractor5bit(a=x ,b=y ,sub=outsub);
