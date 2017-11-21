@@ -1,7 +1,6 @@
 # hdl_cfx
 Projeto de Lógica Computacional - Elaborar um chip CFx
 
-TODO
 - [x] nx (Retorna 1 se x for negativo)
 - [x] ny (Retorna 1 se y for negativo)
 - [x] px (Retorna 1 se x for par)
