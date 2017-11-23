@@ -10,10 +10,10 @@ CHIP cfx {
     PARTS:
 		
 		// outsum
-		FullAdder5bit(a=x, b=y ,sum=outsum, overflow=overflow[0]);
+		outsum(a=x, b=y ,sum=outsum, overflow=overflow[0]);
 				
 		// outsub
-		FullSubtractor5bit(a=x ,b=y ,sub=outsub);
+		outsub(a=x ,b=y ,out=outsub);
 		
 		//outsix Retorna simétrico de x
 		outsix(in=x, out=outsix);

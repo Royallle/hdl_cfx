@@ -1,7 +1,7 @@
-// Ficheiro teste FullAdder5bit
-load FullAdder5bit.hdl, 
-output-file FullAdder5bit.out,
-compare-to FullAdder5bit.cmp,
+// Ficheiro teste outsum
+load outsum.hdl, 
+output-file outsum.out,
+compare-to outsum.cmp,
 output-list a%B3.5.3 b%B3.5.3 sum%B3.5.3;
 
 set a %B00000, // 0+0

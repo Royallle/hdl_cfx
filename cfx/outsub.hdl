@@ -1,0 +1,14 @@
+/**
+ *  Função Subtração
+ *  input a,b e out
+ */
+
+CHIP outsub {
+		IN a[5], b[5];
+		OUT out[5];
+    PARTS:
+	
+	outsix(in=b , out=negb);
+	outsum(a=a, b=negb, sum=out);
+	
+}
