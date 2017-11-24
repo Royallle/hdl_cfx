@@ -9,6 +9,6 @@ CHIP outsub {
     PARTS:
 	
 	outsix(in=b , out=negb);
-	FullAdder5bit(a=a, b=negb, sum=out);
+	outsum(a=a, b=negb, sum=out);
 	
 }

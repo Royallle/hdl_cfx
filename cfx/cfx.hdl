@@ -1,7 +1,15 @@
 /**
- *  Chip do Projecto
- * 
- *  
+ *  Chip do Projecto v1.0
+ *
+ * 	outsum - retorna soma x com y
+ *  outsub - retorna diferença x com y
+ * 	outsix - retorna simétrico de x
+ *  nx/ny  - retorna 1 se x/y for negativo
+ *  px/py  - retorna 1 se x/y for par
+ *  zx/zy  - retorna 1 se x/y for zero
+ *  eq 	   - retorna 1 se x=y
+ *  si 	   - retorna 1 se x=(-y)
+ *
  */
 
 CHIP cfx {   
@@ -15,25 +23,25 @@ CHIP cfx {
 		// outsub
 		outsub(a=x ,b=y ,out=outsub);
 		
-		//outsix Retorna simétrico de x
+		//outsix 
 		outsix(in=x, out=outsix);
 			
-		// nx & ny -> Retorna 1 se x/y forem negativos
+		// nx & ny
 		nx(in=x, out=nx);
 		nx(in=y, out=ny);
 		
-		// px & py -> Retorna 1 se x/y for par
+		// px & py
 		px(in=x, out=px);
 		px(in=y, out=py);
 		
-		// zx & zy -> Retorna 1 se x/y for zero
+		// zx & zy
 		zx(in=x, out=zx);
 		zx(in=y, out=zy);
 		
-		//eq -> Retorna 1 se x e y são iguais
+		//eq
 		eq(a=x ,b=y ,out=eq);
 				
-		//si -> Retorna 1 se x e y forem simétricos		
+		//si	
 		si(a=x ,b=y ,out=si);
 		
 }

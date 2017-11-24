@@ -1,10 +1,10 @@
 /**
- *  FullAdder5bit
+ *  outsum
  *  input a[5],b[5]
  *  output sum[5]
  */
 
-CHIP FullAdder5bit {
+CHIP outsum {
 		IN a[5], b[5];
 		OUT sum[5];
 		
