@@ -1,29 +1,22 @@
-// This file is part of www.nand2tetris.org
-// and the book "The Elements of Computing Systems"
-// by Nisan and Schocken, MIT Press.
-// File name: projects/01/And.tst
+// Script de teste da função nx
 
-load And.hdl, // Nome do chip hdl
-output-file And.out, // Nome do ficheiro de output
-compare-to And.cmp,  // Nome do ficheiro de comparação
-output-list a%B3.1.3 b%B3.1.3 out%B3.1.3; // Formato do Output B3.1.3 = 3 -> Nº de espaços. 1 -> Nº de Bits. 3 -> Nº de espaços
+load nx.hdl,
+output-file nx.out,
+compare-to nx.cmp,
+output-list in%B1.5.1 out%B1.5.1;
 
-set a 0,
-set b 0,
+set in %B00001,
 eval,
 output;
 
-set a 0,
-set b 1,
+set in %B11111,
 eval,
 output;
 
-set a 1,
-set b 0,
+set in %B00101,
 eval,
 output;
 
-set a 1,
-set b 1,
+set in %B11011,
 eval,
 output;
